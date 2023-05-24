@@ -99,12 +99,46 @@ public class BinaryTrees{
             int count = counter(root);
             return(count);
         }
+        public static int minDepth(Node root){
+            Queue<Node> queue = new LinkedList<>();
+            queue.offer(root);
+            int  depth = 1;
+            while(!queue.isEmpty()){
+                int size = queue.size();
+                for(int i =0; i<size; i++){
+                    Node curr = queue.poll();
+                if(curr. left == null && curr.right == null){
+                    return(depth);
+                }
+                if(curr.left != null){
+                    queue.offer(curr.left);
+                }
+                if(curr.right != null){
+                    queue.offer(curr.right);
+                }
+                }
+                depth++;
+                
+            }
+            
+             return(-1);
+        }
+        public static int maxDepth(Node root){
+            if(root == null){
+                return 0;
+            }
+            int leftDepth = maxDepth(root.left) +1;
+            int rightDepth = maxDepth(root.right) +1;
+
+            return(Math.max(leftDepth, rightDepth));
+        }
     }
 
     public static void main(String args[]){
-        int nodes[]= {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        // int nodes[]= {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        int nodes2[] = {1,2,4,-1,-1,5,-1,-1,3,-1,-1};
         BinaryTree tree = new BinaryTree();
-        Node root = tree.buildTree(nodes);
+        Node root = tree.buildTree(nodes2);
         tree.preOrderTraversal(root);
         System.out.println();
         tree.inOrderTraversal(root);
@@ -114,6 +148,10 @@ public class BinaryTrees{
         tree.levelOrderTraversal(root);
         System.out.println();
         System.out.println(tree.getCount(root));
+        System.out.println();
+        System.out.println(tree.minDepth(root));
+        System.out.println();
+        System.out.println(tree.maxDepth(root));
         
 
 
