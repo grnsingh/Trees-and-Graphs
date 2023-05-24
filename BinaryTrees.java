@@ -15,6 +15,8 @@ public class BinaryTrees{
 
     static class BinaryTree{
         static int index = -1;
+
+        
         public static Node buildTree(int nodes[]){
             index++;
             if(nodes[index]==-1){
@@ -24,6 +26,7 @@ public class BinaryTrees{
             Node root = new Node(nodes[index]);
             root.left = buildTree(nodes);
             root.right = buildTree(nodes);
+            
             return(root);
         }
 
@@ -82,6 +85,20 @@ public class BinaryTrees{
                 }
             }
         }
+       
+        public static int counter(Node root){
+            if(root == null){
+                return(0);
+            }
+
+            int left =counter(root.left);
+            int right = counter(root.right);
+            return(left + right + 1);
+        }
+        public static int getCount(Node root){
+            int count = counter(root);
+            return(count);
+        }
     }
 
     public static void main(String args[]){
@@ -95,6 +112,10 @@ public class BinaryTrees{
         tree.postOrderTraversal(root);
         System.out.println();
         tree.levelOrderTraversal(root);
+        System.out.println();
+        System.out.println(tree.getCount(root));
+        
+
 
     }
 }
