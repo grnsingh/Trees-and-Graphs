@@ -58,7 +58,29 @@ public class BinaryTrees{
         }
 
         public static void levelOrderTraversal(Node root){
-            Queue<Integer> queue = new LinkedList<>();
+            Queue<Node> queue = new LinkedList<>();
+            queue.offer(root);
+            queue.offer(null);
+
+            while(!queue.isEmpty()){
+                Node curr = queue.poll();
+                if ( curr == null){
+                    System.out.println();
+                    if(queue.isEmpty()){
+                        break;
+                    }else{
+                        queue.offer(null);
+                    }
+                }else{
+                    System.out.print(curr.data+" ");
+                    if(curr.left != null){
+                        queue.offer(curr.left);
+                    }
+                    if(curr.right!= null){
+                        queue.offer(curr.right);
+                    }
+                }
+            }
         }
     }
 
@@ -71,5 +93,8 @@ public class BinaryTrees{
         tree.inOrderTraversal(root);
         System.out.println();
         tree.postOrderTraversal(root);
+        System.out.println();
+        tree.levelOrderTraversal(root);
+
     }
 }
