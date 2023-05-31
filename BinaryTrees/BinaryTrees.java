@@ -132,6 +132,20 @@ public class BinaryTrees {
 
             return (Math.max(leftDepth, rightDepth));
         }
+        private int diameter = 0;
+        public int diameterOfBinaryTree(Node root){
+            if(root == null){
+                return(0);
+            }
+            int leftPath = diameterOfBinaryTree(root.left);
+            int rightPath = diameterOfBinaryTree(root.right);
+            diameter = Math.max(diameter, leftPath+rightPath);
+            return(Math.max(leftPath,rightPath)+1);
+        }
+        public int getDiameter(Node root){
+            diameter = diameterOfBinaryTree(root);
+            return(diameter);
+        }
     }
 
     public static void main(String args[]) {
@@ -152,5 +166,7 @@ public class BinaryTrees {
         System.out.println(tree.minDepth(root));
         System.out.println();
         System.out.println(tree.maxDepth(root));
+        System.out.println();
+        System.out.println(tree.getDiameter(root));
     }
 }
