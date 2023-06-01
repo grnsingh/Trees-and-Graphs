@@ -1,6 +1,4 @@
 package BSTTrees;
-
-
 public class BST {
     static class Node {
         private int data;
