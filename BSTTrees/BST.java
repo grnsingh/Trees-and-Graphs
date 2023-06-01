@@ -51,6 +51,9 @@ public class BST {
         }
     }
 
+    //  To do -
+    //  Add a method to delete a node (Ques asked in adobe and amazon)
+
     public static void main(String args[]){
         int values[] = {5,1,3,4,2,7, -2,6};
         Node root = null;
