@@ -24,6 +24,7 @@ public class Graphs {
 
         graph[1].add(new Edge(1,2));
         graph[1].add(new Edge(1,3));
+        
 
         graph[2].add(new Edge(2,0));
         graph[2].add(new Edge(2,1));
