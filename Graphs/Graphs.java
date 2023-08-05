@@ -1,7 +1,5 @@
 package Graphs;
-
 import java.util.*;
-
 public class Graphs {
 
     static class Edge{
@@ -24,7 +22,7 @@ public class Graphs {
 
         graph[1].add(new Edge(1,2));
         graph[1].add(new Edge(1,3));
-        
+
 
         graph[2].add(new Edge(2,0));
         graph[2].add(new Edge(2,1));
@@ -35,9 +33,7 @@ public class Graphs {
     }
     public static void main(String args[]){
         int v=4;
-        // 4 vertices
         ArrayList<Edge> graph[] = new ArrayList[v];
-        // Adjancey list of type array of ArrayList<Edge>
 
     }
 }
