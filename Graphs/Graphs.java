@@ -53,6 +53,27 @@ public class Graphs {
         }
 
     }
+
+    public static void bfs(ArrayList<Edge> graph[], int V){
+        Queue<Integer>  q = new LinkedList<>();
+        boolean visited[] = new boolean[V];
+
+        q.offer(0);
+        while(!q.isEmpty()){
+            int curr = q.poll();
+            if(visited[curr]==false){
+                System.out.println(curr);
+                visited[curr] = true;
+
+                for(int i=0; i<graph[curr].size(); i++){
+                    Edge e = graph[curr].get(i);
+                    q.offer(e.dest);
+                }
+            }
+
+        }
+
+    }
     public static void main(String args[]){
         int v=4;
         ArrayList<Edge> graph[] = new ArrayList[v];
