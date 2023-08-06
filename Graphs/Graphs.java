@@ -29,7 +29,7 @@ public class Graphs {
         graph[2].add(new Edge(2,3));
 
         graph[3].add(new Edge(3,2));
-         graph[3].add(new Edge(3,1));
+        graph[3].add(new Edge(3,1));
     }
     public static void main(String args[]){
         int v=4;
