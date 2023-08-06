@@ -31,9 +31,33 @@ public class Graphs {
         graph[3].add(new Edge(3,2));
         graph[3].add(new Edge(3,1));
     }
+
+    public static void bfs(ArrayList<Edge> graph[], int V){
+        Queue<Integer>  q = new LinkedList<>();
+        // boolean visited[] = new boolean[V];
+        HashSet<Integer> visited = new HashSet();
+
+        q.offer(0);
+        while(!q.isEmpty()){
+            int curr = q.poll();
+            if(!visited.contains(curr)){
+                System.out.println(curr);
+                visited.add(curr);
+
+                for(int i=0; i<graph[curr].size(); i++){
+                    Edge e = graph[curr].get(i);
+                    q.offer(e.dest);
+                }
+            }
+
+        }
+
+    }
     public static void main(String args[]){
         int v=4;
         ArrayList<Edge> graph[] = new ArrayList[v];
+        createGraph(graph);
+        bfs(graph, v);
 
     }
 }
