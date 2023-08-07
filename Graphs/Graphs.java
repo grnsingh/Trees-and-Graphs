@@ -54,31 +54,35 @@ public class Graphs {
 
     }
 
-    public static void bfs(ArrayList<Edge> graph[], int V){
-        Queue<Integer>  q = new LinkedList<>();
-        boolean visited[] = new boolean[V];
+    public static void dfs(ArrayList<Edge> graph[], int curr, HashSet<Integer> vis){
+        System.out.println(curr);
+        vis.add(curr);
 
-        q.offer(0);
-        while(!q.isEmpty()){
-            int curr = q.poll();
-            if(visited[curr]==false){
-                System.out.println(curr);
-                visited[curr] = true;
+        for(int i = 0; i<graph[curr].size(); i++){
+            Edge e = graph[curr].get(i);
+            if(!vis.contains(e.dest)){
+                dfs(graph, e.dest, vis );
 
-                for(int i=0; i<graph[curr].size(); i++){
-                    Edge e = graph[curr].get(i);
-                    q.offer(e.dest);
-                }
             }
-
         }
-
     }
+
+    
     public static void main(String args[]){
         int v=4;
         ArrayList<Edge> graph[] = new ArrayList[v];
         createGraph(graph);
+
+        System.out.println("BFS");
         bfs(graph, v);
+
+        System.out.println("DFS ");
+        HashSet<Integer> vis = new HashSet<>();
+        dfs(graph, 0, vis);
+
+        
+
+
 
     }
 }
